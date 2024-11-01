@@ -18,11 +18,9 @@ function displayMessage(message, className) {
 }
 
 function generateBotResponse(userMessage) {
-    // Convert the user message to lower case for case-insensitive matching
     const message = userMessage.toLowerCase();
     let botResponse;
 
-    // Simple keyword-based responses
     if (message.includes("hello") || message.includes("hi")) {
         botResponse = "Hi there! How can I help you today?";
     } else if (message.includes("how are you")) {
