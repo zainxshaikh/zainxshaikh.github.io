@@ -18,12 +18,23 @@ function displayMessage(message, className) {
 }
 
 function generateBotResponse(userMessage) {
-    // Basic responses for demonstration
+    // Convert the user message to lower case for case-insensitive matching
+    const message = userMessage.toLowerCase();
     let botResponse;
-    if (userMessage.toLowerCase() === "hello") {
-        botResponse = "Hi there! How can I help you?";
+
+    // Simple keyword-based responses
+    if (message.includes("hello") || message.includes("hi")) {
+        botResponse = "Hi there! How can I help you today?";
+    } else if (message.includes("how are you")) {
+        botResponse = "I'm just a program, but thanks for asking! How can I assist you?";
+    } else if (message.includes("help") || message.includes("support")) {
+        botResponse = "Sure! What do you need help with?";
+    } else if (message.includes("your name")) {
+        botResponse = "I am a simple chatbot created to assist you!";
+    } else if (message.includes("bye")) {
+        botResponse = "Goodbye! Have a great day!";
     } else {
-        botResponse = "I'm sorry, I don't understand.";
+        botResponse = "I'm sorry, I don't understand. Can you please rephrase?";
     }
     
     setTimeout(() => {
