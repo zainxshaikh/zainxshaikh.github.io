@@ -8,27 +8,18 @@
         body, html {
             margin: 0;
             padding: 0;
-        }
-        #chatbot-container {
-            width: 100%;
-            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-        }
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            min-height: 500px;
+            height: 100vh;
         }
     </style>
 </head>
 <body>
-    <div id="chatbot-container">
-        <iframe src="https://app.thinkstack.ai/bot/index.html?chatbot_id=67b8b3af53d21a54788e4841&type=inline"
-                frameborder="0">
-        </iframe>
-    </div>
+    <script
+        chatbot_id="67b8b3af53d21a54788e4841"
+        data-type="default"
+        src="https://app.thinkstack.ai/bot/thinkstackai-loader.min.js"
+    ></script>
 </body>
 </html>
