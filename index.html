@@ -1,57 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - CS Student</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zain Shaikh | Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <nav class="navbar">
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#certifications">Certifications</a></li>
-            <li><a href="#projects">Projects</a></li>
-        </ul>
-    </nav>
+    <!-- Navbar -->
+    <header>
+        <nav>
+            <h1 class="logo">Zain Shaikh</h1>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
+    <!-- Home Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1>Hi, I'm [Your Name]</h1>
-            <p>A passionate Computer Science student specializing in [Your Specialization, e.g., Web Development].</p>
+            <h2>Hello, I'm <span>Zain Shaikh</span></h2>
+            <p>Computer Science Student | Aspiring Software Engineer</p>
+            <a href="#projects" class="btn">View My Work</a>
         </div>
     </section>
 
-    <section id="about" class="section">
+    <!-- About Section -->
+    <section id="about">
         <h2>About Me</h2>
-        <p>Write a brief summary about yourself, your skills, and your passion for computer science. Mention your academic journey and what you hope to achieve.</p>
+        <div class="about-container">
+            <img src="profile.jpg" alt="Zain Shaikh">
+            <p>
+                I am a Computer Science student passionate about building
+                impactful applications. I enjoy solving problems, learning new
+                technologies, and contributing to open-source projects.
+            </p>
+        </div>
     </section>
 
-    <section id="certifications" class="section">
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="projects-container">
+            <div class="card">
+                <h3>Course Scheduler App</h3>
+                <p>An app to help students organize their timetable efficiently.</p>
+                <a href="#" target="_blank">View Project</a>
+            </div>
+            <div class="card">
+                <h3>Portfolio Website</h3>
+                <p>A personal portfolio built using HTML, CSS, and JavaScript.</p>
+                <a href="#" target="_blank">View Project</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications">
         <h2>Certifications</h2>
-        <div class="certifications-grid">
-            <div class="certification-item">
-                <h3>[Certification Name]</h3>
-                <p>[Issuing Organization, e.g., Coursera, Udemy]</p>
-                <p>[Date of Completion]</p>
-            </div>
-            </div>
+        <ul>
+            <li>Oracle AI Vector Search Certified Professional</li>
+            <li>Python for Data Science – Coursera</li>
+        </ul>
     </section>
 
-    <section id="projects" class="section">
-        <h2>My Projects</h2>
-        <div class="projects-grid">
-            <div class="project-card">
-                <img src="https://via.placeholder.com/400x250" alt="Project 1">
-                <h3>[Project 1 Title]</h3>
-                <p>[Brief description of the project and technologies used.]</p>
-                <a href="#">View Project</a>
-            </div>
-            </div>
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>Email: <a href="mailto:zain@example.com">zain@example.com</a></p>
+        <div class="socials">
+            <a href="#">LinkedIn</a>
+            <a href="#">GitHub</a>
+            <a href="#">Twitter</a>
+        </div>
     </section>
 
-    <script src="script.js"></script>
+    <footer>
+        <p>&copy; 2025 Zain Shaikh. All rights reserved.</p>
+    </footer>
+
 </body>
 </html>
