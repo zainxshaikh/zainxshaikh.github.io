@@ -1,1 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio - Home</title>
+    <!-- Use the Inter font from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Base styles for a clean look */
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        /*
+         * Animated background container to mimic the provided image.
+         * It uses a radial gradient and CSS keyframes to create a subtle, moving effect.
+         * The colors are inspired by the new palette: a deep maroon, a soft pink, and a dark brown.
+         */
+        .animated-gradient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Position behind all content */
+            background: radial-gradient(at 0% 100%, #280c1a 0%, transparent 50%),
+                        radial-gradient(at 100% 0%, #7c392c 0%, transparent 50%),
+                        radial-gradient(at 50% 50%, #edbfc6 0%, transparent 50%);
+            background-size: 300% 300%; /* Increased size for a more pronounced animation */
+            animation: moveGradient 10s ease-in-out infinite alternate; /* Shorter duration for faster movement */
+        }
+
+        @keyframes moveGradient {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        /* Menu container for positioning */
+        .fixed-menu-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 50;
+            padding: 1.5rem;
+        }
+
+        /* Menu dropdown animation */
+        #mobile-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            max-height: 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+            overflow: hidden;
+            width: max-content;
+            transform: translateY(-10px);
+        }
+        #mobile-menu.active {
+            max-height: 20rem; /* A large enough value for the menu content */
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* Menu button rotation animation */
+        .menu-button-active {
+            transform: rotate(90deg);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Scroll-to-top button styling, updated with new colors */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: #7c392c; /* Burnt Umber */
+            color: white;
+            padding: 1rem;
+            border-radius: 9999px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
+            z-index: 50;
+            display: none;
+        }
+        .scroll-to-top:hover {
+            background-color: #5c2c23; /* A darker shade of burnt umber */
+            transform: translateY(-5px);
+        }
+
+        /* Section fade-in effect */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Adjust main content backgrounds for transparency */
+        .main-section-bg {
+            background-color: transparent; /* Changed to transparent */
+            backdrop-filter: blur(5px); /* Add a subtle blur for readability */
+        }
+        
+        .contact-card {
+            background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white for the card */
+            backdrop-filter: blur(10px); /* A stronger blur for the card */
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Animated Gradient Background -->
+    <div class="animated-gradient-bg"></div>
+
+    <!-- Fixed Menu Container -->
+    <div class="fixed-menu-container relative">
+        <!-- Menu Button -->
+        <button id="mobile-menu-button" class="p-2 rounded-lg text-gray-800 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path>
+            </svg>
+        </button>
+        <!-- Menu Dropdown -->
+        <div id="mobile-menu" class="bg-white shadow-lg py-2 mt-2 rounded-lg absolute left-0 top-full">
+            <a href="#about" class="block px-4 py-2 text-[#edbfc6] font-semibold">About</a>
+            <a href="projects.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Projects</a>
+            <a href="#contact" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Contact</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-12">
+        <!-- About Me Section (Main Hero Section) -->
+        <section id="about" class="py-20 fade-in-section main-section-bg rounded-xl p-8 mb-12">
+            <div class="max-w-4xl mx-auto text-center md:text-left">
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-4">
+                    Hello! 👋
+                </h1>
+                <p class="text-lg text-gray-600 mb-6 max-w-xl mx-auto md:mx-0">
+                    I'm <span class="font-bold">Your Name</span>, a <span class="font-semibold">Full Stack Developer</span> with a passion for building beautiful and functional web applications.
+                    This is a brief summary of my skills and experience.
+                </p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 fade-in-section main-section-bg rounded-xl p-8">
+            <h2 class="text-4xl font-extrabold text-center text-gray-900 mb-12">Get In Touch</h2>
+            <div class="max-w-2xl mx-auto contact-card p-8 rounded-xl shadow-lg">
+                <div class="flex flex-col sm:flex-row justify-center gap-6">
+                    <!-- Email Link -->
+                    <a href="mailto:your.email@example.com" class="flex items-center justify-center gap-2 bg-[#7c392c] text-white font-bold py-4 px-6 rounded-lg shadow-lg hover:bg-[#5c2c23] transition-colors flex-1">
+                        <!-- Email Icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                        Email
+                    </a>
+                    <!-- LinkedIn Link -->
+                    <a href="https://linkedin.com/in/yourprofile" class="flex items-center justify-center gap-2 bg-gray-900 text-white font-bold py-4 px-6 rounded-lg shadow-lg hover:bg-gray-800 transition-colors flex-1">
+                        <!-- LinkedIn Icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.762s.784-1.762 1.75-1.762 1.75.79 1.75 1.762-.783 1.762-1.75 1.762zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                        LinkedIn
+                    </a>
+                    <!-- X (formerly Twitter) Link -->
+                    <a href="https://x.com/yourhandle" class="flex items-center justify-center gap-2 bg-gray-700 text-white font-bold py-4 px-6 rounded-lg shadow-lg hover:bg-gray-600 transition-colors flex-1">
+                        <!-- X Icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.795-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.594 0-6.495 2.902-6.495 6.495 0 .509.057 1.001.169 1.474-5.395-.27-10.169-2.866-13.369-6.791-.555.951-.876 2.062-.876 3.255 0 2.247 1.144 4.237 2.879 5.395-.945-.03-1.836-.289-2.614-.725v.081c0 3.141 2.235 5.751 5.195 6.348-.546.148-1.127.225-1.729.225-.424 0-.834-.041-1.234-.117.828 2.57 3.208 4.45 6.066 4.498-2.22 1.745-5.021 2.787-8.07 2.787-.525 0-1.04-.031-1.545-.09.309 2.115 1.782 3.9 3.663 5.066 1.758 1.139 3.864 1.815 6.096 1.815a12.821 12.821 0 005.158-1.074c2.812-1.282 5.234-3.597 6.643-6.495 1.109-2.261 1.758-4.819 1.758-7.643 0-.117-.003-.234-.009-.351z"/>
+                        </svg>
+                        X
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto text-center px-6">
+            <p class="text-gray-400">© 2024 Your Name. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <div id="scroll-to-top" class="scroll-to-top">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+    </div>
+
+    <!-- JavaScript for interactivity -->
+    <script>
+        // Get all relevant elements from the DOM
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const scrollToTopButton = document.getElementById('scroll-to-top');
+        const sections = document.querySelectorAll('.fade-in-section');
+
+        // Toggle the mobile menu and button animation on click
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            mobileMenuButton.classList.toggle('menu-button-active');
+        });
+
+        // Show/hide the scroll-to-top button based on scroll position
+        window.addEventListener('scroll', () => {
+            scrollToTopButton.style.display = (window.scrollY > 300) ? 'block' : 'none';
+        });
+
+        // Smoothly scroll to the top of the page when the button is clicked
+        scrollToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Use Intersection Observer for the fade-in effect on sections
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        // Observe each section for the fade-in effect
+        sections.forEach(section => observer.observe(section));
+    </script>
+</body>
+</html>
 
