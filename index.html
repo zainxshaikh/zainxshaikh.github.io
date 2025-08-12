@@ -1,91 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Zain Shaikh | Portfolio</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Richard Hanrick - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b1e1b; /* Black Stallion */
+            color: #e2e8f0; /* Light text color */
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        .main-content {
+            min-height: 100vh;
+        }
+        .sidebar {
+            background-color: #5a736c; /* Noble Fir */
+            color: #e2e8f0;
+        }
+        .card {
+            background-color: #5a736c; /* Noble Fir */
+            color: #e2e8f0;
+        }
+    </style>
 </head>
-<body>
+<body class="text-gray-200">
 
-    <!-- Navbar -->
-    <header>
-        <nav>
-            <h1 class="logo">Zain Shaikh</h1>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#certifications">Certifications</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- Home Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h2>Hello, I'm <span>Zain Shaikh</span></h2>
-            <p>Computer Science Student | Aspiring Software Engineer</p>
-            <a href="#projects" class="btn">View My Work</a>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about">
-        <h2>About Me</h2>
-        <div class="about-container">
-            <img src="profile.jpg" alt="Zain Shaikh">
-            <p>
-                I am a Computer Science student passionate about building
-                impactful applications. I enjoy solving problems, learning new
-                technologies, and contributing to open-source projects.
-            </p>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="projects-container">
-            <div class="card">
-                <h3>Course Scheduler App</h3>
-                <p>An app to help students organize their timetable efficiently.</p>
-                <a href="#" target="_blank">View Project</a>
+    <!-- Main Container with Sidebar and Content Area -->
+    <div class="md:flex">
+        <!-- Left Sidebar -->
+        <aside class="sidebar w-full md:w-1/4 p-8 fixed md:sticky top-0 h-auto md:h-screen z-50 rounded-xl m-4">
+            <div class="flex flex-col items-center text-center mb-8">
+                <!-- Replace with your professional photo -->
+                <img src="https://placehold.co/150x150/f2c063/0b1e1b?text=RH" alt="Richard Hanrick" class="rounded-full w-32 h-32 mb-4 object-cover">
+                <h1 class="text-3xl font-bold">Richard Hanrick</h1>
+                <p class="text-[#f2c063] font-semibold mt-1">Web Developer</p>
             </div>
-            <div class="card">
-                <h3>Portfolio Website</h3>
-                <p>A personal portfolio built using HTML, CSS, and JavaScript.</p>
-                <a href="#" target="_blank">View Project</a>
+            <nav class="flex flex-col space-y-4 text-center md:text-left">
+                <a href="#about" class="hover:text-[#f2c063] transition-colors duration-300">About</a>
+                <a href="#resume" class="hover:text-[#f2c063] transition-colors duration-300">Resume</a>
+                <a href="#portfolio" class="hover:text-[#f2c063] transition-colors duration-300">Portfolio</a>
+                <a href="#blog" class="hover:text-[#f2c063] transition-colors duration-300">Blog</a>
+                <a href="#contact" class="hover:text-[#f2c063] transition-colors duration-300">Contact</a>
+            </nav>
+            <div class="mt-8 text-center md:text-left">
+                <h3 class="text-lg font-bold mb-2">Contact Info</h3>
+                <p class="text-sm">Email: <a href="mailto:rh@example.com" class="hover:text-[#f2c063]">rh@example.com</a></p>
+                <p class="text-sm">Phone: <a href="tel:+(01)234-567-890" class="hover:text-[#f2c063]">+(01) 234-567-890</a></p>
+                <p class="text-sm">Location: Your City, State, Country</p>
+                <div class="mt-4 flex justify-center md:justify-start space-x-4">
+                    <a href="https://twitter.com/yourusername" target="_blank" class="hover:text-[#f2c063]">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M22.46 6c-.85.38-1.76.64-2.73.76.98-.58 1.73-1.5 2.08-2.58-.93.55-1.96.95-3.07 1.17-.88-.94-2.14-1.52-3.52-1.52-2.58 0-4.68 2.1-4.68 4.68 0 .37.04.73.12 1.08-3.9-.2-7.36-2.07-9.68-4.9-.4.68-.63 1.47-.63 2.32 0 1.62.82 3.05 2.07 3.89-.76-.02-1.48-.23-2.1-.58v.06c0 2.26 1.61 4.14 3.74 4.57-.4.1-.82.16-1.25.16-.3 0-.58-.03-.86-.09.59 1.85 2.3 3.19 4.3 3.23-1.6 1.25-3.62 1.99-5.83 1.99-.38 0-.75-.02-1.12-.07 2.06 1.32 4.5 2.1 7.13 2.1 8.55 0 13.25-7.07 13.25-13.25 0-.2-.01-.4-.01-.6.91-.66 1.7-1.48 2.32-2.42z"/></svg>
+                    </a>
+                    <a href="https://linkedin.com/in/yourusername" target="_blank" class="hover:text-[#f2c063]">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2 16h-3v-5h3v5zm-1.5-6.5c-.828 0-1.5-.672-1.5-1.5s.672-1.5 1.5-1.5 1.5.672 1.5 1.5-.672 1.5-1.5 1.5zm8.5 6.5h-3v-5c0-.845-.699-1.528-1.5-1.528s-1.5.683-1.5 1.528v5h-3v-5c0-2.485 2.015-4.5 4.5-4.5s4.5 2.015 4.5 4.5v5z"/></svg>
+                    </a>
+                    <a href="https://github.com/yourusername" target="_blank" class="hover:text-[#f2c063]">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12c5.373 0 9.878-3.955 11-9.596.16-1.574-.067-3.21-.864-4.814-1.282-2.56-3.842-4.183-6.666-4.183zM12 21.5c-5.244 0-9.5-4.256-9.5-9.5s4.256-9.5 9.5-9.5 9.5 4.256 9.5 9.5-4.256 9.5-9.5 9.5zm4.5-12.75h-9v1.5h9v-1.5zm-9 3h9v1.5h-9v-1.5zm0 3h9v1.5h-9v-1.5z"/></svg>
+                    </a>
+                </div>
             </div>
-        </div>
-    </section>
+        </aside>
 
-    <!-- Certifications Section -->
-    <section id="certifications">
-        <h2>Certifications</h2>
-        <ul>
-            <li>Oracle AI Vector Search Certified Professional</li>
-            <li>Python for Data Science – Coursera</li>
-        </ul>
-    </section>
+        <!-- Main Content Area -->
+        <main class="w-full md:w-3/4 p-8 md:ml-auto">
+            <header class="block md:hidden mb-8">
+                <nav class="flex justify-around text-center">
+                    <a href="#about" class="hover:text-[#f2c063]">About</a>
+                    <a href="#resume" class="hover:text-[#f2c063]">Resume</a>
+                    <a href="#portfolio" class="hover:text-[#f2c063]">Portfolio</a>
+                    <a href="#blog" class="hover:text-[#f2c063]">Blog</a>
+                    <a href="#contact" class="hover:text-[#f2c063]">Contact</a>
+                </nav>
+            </header>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <p>Email: <a href="mailto:zain@example.com">zain@example.com</a></p>
-        <div class="socials">
-            <a href="#">LinkedIn</a>
-            <a href="#">GitHub</a>
-            <a href="#">Twitter</a>
-        </div>
-    </section>
+            <!-- About Me Section -->
+            <section id="about" class="mb-12">
+                <h2 class="text-4xl font-bold text-white mb-6">About Me</h2>
+                <div class="card p-6 rounded-xl shadow-lg">
+                    <p class="text-lg leading-relaxed">
+                        I’m a Creative Director and UI/UX Designer from Sydney, Australia. I specialize in web development and print media. I love beautiful design, and I’m always learning about new technologies and creative designs.
+                    </p>
+                    <div class="mt-8">
+                        <h3 class="text-2xl font-bold mb-4">What I'm Doing</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Skill Card 1 -->
+                            <div class="bg-[#2d3748] p-6 rounded-xl">
+                                <svg class="w-10 h-10 text-[#f2c063] mb-2" fill="currentColor" viewBox="0 0 24 24"><path d="M22 6h-2v11h-2v-11h-2v11h-2v-11h-2v11h-2v-11h-2v11h-2v-11h-2v11h-2v-11H0v12c0 1.1.9 2 2 2h20c1.1 0 2-.9 2-2V6zm-2 11V6h2v11h-2zm-4 0V6h2v11h-2zm-4 0V6h2v11h-2zm-4 0V6h2v11h-2zm-4 0V6h2v11h-2zm-4 0V6h2v11h-2zm-4 0V6h2v11h-2z"/></svg>
+                                <h4 class="text-xl font-semibold">Web Design</h4>
+                                <p class="text-sm mt-2">The most modern and high-quality design is applied to all of my work.</p>
+                            </div>
+                            <!-- Skill Card 2 -->
+                            <div class="bg-[#2d3748] p-6 rounded-xl">
+                                <svg class="w-10 h-10 text-[#f2c063] mb-2" fill="currentColor" viewBox="0 0 24 24"><path d="M21 2h-18c-1.104 0-2 .896-2 2v16c0 1.104.896 2 2 2h18c1.104 0 2-.896 2-2v-16c0-1.104-.896-2-2-2zm0 18h-18v-16h18v16zm-10-12h-3v3h3v-3zm0 5h-3v3h3v-3zm5-5h-3v3h3v-3zm0 5h-3v3h3v-3z"/></svg>
+                                <h4 class="text-xl font-semibold">Web Development</h4>
+                                <p class="text-sm mt-2">High-quality development of any project at a professional level.</p>
+                            </div>
+                            <!-- Skill Card 3 -->
+                            <div class="bg-[#2d3748] p-6 rounded-xl">
+                                <svg class="w-10 h-10 text-[#f2c063] mb-2" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2c-3.313 0-6 2.687-6 6v14c0 1.104.896 2 2 2h8c1.104 0 2-.896 2-2v-14c0-3.313-2.687-6-6-6zm0 2c1.656 0 3 1.344 3 3s-1.344 3-3 3-3-1.344-3-3 1.344-3 3-3zm-5 7v10h10v-10h-10zm2 12h6v2h-6v-2z"/></svg>
+                                <h4 class="text-xl font-semibold">Mobile Apps</h4>
+                                <p class="text-sm mt-2">Development of high-performance and functional mobile applications.</p>
+                            </div>
+                            <!-- Skill Card 4 -->
+                            <div class="bg-[#2d3748] p-6 rounded-xl">
+                                <svg class="w-10 h-10 text-[#f2c063] mb-2" fill="currentColor" viewBox="0 0 24 24"><path d="M22 17.5c0 .276-.224.5-.5.5h-19c-.276 0-.5-.224-.5-.5v-11c0-.276.224-.5.5-.5h2c.276 0 .5.224.5.5v2c0 .276-.224.5-.5.5h-1.5v8.5h18v-8.5h-1.5c-.276 0-.5-.224-.5-.5v-2c0-.276.224-.5.5-.5h2c.276 0 .5.224.5.5v11zm-13.5-9.5c0-.276.224-.5.5-.5h5c.276 0 .5.224.5.5v5c0 .276-.224.5-.5.5h-5c-.276 0-.5-.224-.5-.5v-5zm1 1h4v3h-4v-3z"/></svg>
+                                <h4 class="text-xl font-semibold">Photography</h4>
+                                <p class="text-sm mt-2">I can produce photos of any category on a professional level.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-    <footer>
-        <p>&copy; 2025 Zain Shaikh. All rights reserved.</p>
-    </footer>
+            <!-- Resume Section -->
+            <section id="resume" class="mb-12">
+                <h2 class="text-4xl font-bold text-white mb-6">Resume</h2>
+                <div class="card p-6 rounded-xl shadow-lg">
+                    <h3 class="text-2xl font-bold mb-4">Education</h3>
+                    <div class="space-y-6">
+                        <!-- Education Entry 1 -->
+                        <div>
+                            <p class="text-sm text-gray-400">2017 - 2021</p>
+                            <h4 class="text-xl font-semibold text-[#f2c063]">University School Of The Arts</h4>
+                            <p class="text-sm">Bachelor's Degree in Fine Arts</p>
+                        </div>
+                        <!-- Education Entry 2 -->
+                        <div>
+                            <p class="text-sm text-gray-400">2014 - 2016</p>
+                            <h4 class="text-xl font-semibold text-[#f2c063]">Academy Of Art</h4>
+                            <p class="text-sm">Graphic Design & Media</p>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-bold mt-8 mb-4">Experience</h3>
+                    <div class="space-y-6">
+                        <!-- Experience Entry 1 -->
+                        <div>
+                            <p class="text-sm text-gray-400">2021 - Present</p>
+                            <h4 class="text-xl font-semibold text-[#f2c063]">Creative Director</h4>
+                            <p class="text-sm">Google Inc.</p>
+                            <p class="text-sm mt-1 leading-relaxed">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam efficitur, metus nec fermentum vulputate, lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </div>
+                        <!-- Experience Entry 2 -->
+                        <div>
+                            <p class="text-sm text-gray-400">2019 - 2021</p>
+                            <h4 class="text-xl font-semibold text-[#f2c063]">Art Director</h4>
+                            <p class="text-sm">Apple Inc.</p>
+                            <p class="text-sm mt-1 leading-relaxed">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
+            <!-- Portfolio Section -->
+            <section id="portfolio" class="mb-12">
+                <h2 class="text-4xl font-bold text-white mb-6">Portfolio</h2>
+                <div class="card p-6 rounded-xl shadow-lg">
+                    <div class="flex justify-center md:justify-start space-x-4 mb-8">
+                        <button class="bg-[#f2c063] text-[#0b1e1b] font-bold py-2 px-4 rounded-full text-sm hover:bg-[#d8a853] transition-colors duration-300">All</button>
+                        <button class="bg-[#2d3748] text-white font-bold py-2 px-4 rounded-full text-sm hover:bg-[#d8a853] transition-colors duration-300">Web Design</button>
+                        <button class="bg-[#2d3748] text-white font-bold py-2 px-4 rounded-full text-sm hover:bg-[#d8a853] transition-colors duration-300">Applications</button>
+                        <button class="bg-[#2d3748] text-white font-bold py-2 px-4 rounded-full text-sm hover:bg-[#d8a853] transition-colors duration-300">Web Development</button>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Portfolio Item 1 -->
+                        <div class="relative group overflow-hidden rounded-xl">
+                            <img src="https://placehold.co/600x400/f2c063/0b1e1b?text=Project+1" alt="Project 1" class="w-full h-full object-cover transition-transform duration-300 transform group-hover:scale-105">
+                            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <h4 class="text-white text-xl font-semibold">Project Title</h4>
+                            </div>
+                        </div>
+                        <!-- Portfolio Item 2 -->
+                        <div class="relative group overflow-hidden rounded-xl">
+                            <img src="https://placehold.co/600x400/f2c063/0b1e1b?text=Project+2" alt="Project 2" class="w-full h-full object-cover transition-transform duration-300 transform group-hover:scale-105">
+                            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <h4 class="text-white text-xl font-semibold">Project Title</h4>
+                            </div>
+                        </div>
+                        <!-- Portfolio Item 3 -->
+                        <div class="relative group overflow-hidden rounded-xl">
+                            <img src="https://placehold.co/600x400/f2c063/0b1e1b?text=Project+3" alt="Project 3" class="w-full h-full object-cover transition-transform duration-300 transform group-hover:scale-105">
+                            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <h4 class="text-white text-xl font-semibold">Project Title</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Blog Section -->
+            <section id="blog" class="mb-12">
+                <h2 class="text-4xl font-bold text-white mb-6">Blog</h2>
+                <div class="card p-6 rounded-xl shadow-lg">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Blog Post 1 -->
+                        <div class="bg-[#2d3748] rounded-xl overflow-hidden shadow-lg">
+                            <img src="https://placehold.co/600x400/f2c063/0b1e1b?text=Blog+Post+1" alt="Blog Post 1" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <p class="text-sm text-gray-400">Design - Feb 21, 2022</p>
+                                <h4 class="text-xl font-semibold mt-2">Design Conferences in 2022</h4>
+                                <a href="#" class="text-[#f2c063] hover:text-[#d8a853] text-sm mt-2 inline-block">Read More &rarr;</a>
+                            </div>
+                        </div>
+                        <!-- Blog Post 2 -->
+                        <div class="bg-[#2d3748] rounded-xl overflow-hidden shadow-lg">
+                            <img src="https://placehold.co/600x400/f2c063/0b1e1b?text=Blog+Post+2" alt="Blog Post 2" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <p class="text-sm text-gray-400">Design - Feb 21, 2022</p>
+                                <h4 class="text-xl font-semibold mt-2">Best Fonts Every Designer Needs</h4>
+                                <a href="#" class="text-[#f2c063] hover:text-[#d8a853] text-sm mt-2 inline-block">Read More &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="mb-12">
+                <h2 class="text-4xl font-bold text-white mb-6">Contact</h2>
+                <div class="card p-6 rounded-xl shadow-lg">
+                    <h3 class="text-2xl font-bold mb-4">Contact Form</h3>
+                    <form class="space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <input type="text" placeholder="Full name" class="w-full p-3 rounded-lg bg-[#2d3748] border border-[#5a736c] focus:outline-none focus:ring-2 focus:ring-[#f2c063]">
+                            <input type="email" placeholder="Email address" class="w-full p-3 rounded-lg bg-[#2d3748] border border-[#5a736c] focus:outline-none focus:ring-2 focus:ring-[#f2c063]">
+                        </div>
+                        <textarea placeholder="Your message" rows="5" class="w-full p-3 rounded-lg bg-[#2d3748] border border-[#5a736c] focus:outline-none focus:ring-2 focus:ring-[#f2c063]"></textarea>
+                        <button type="submit" class="w-full bg-[#f2c063] text-[#0b1e1b] font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-[#d8a853] transition-all duration-300">Send Message</button>
+                    </form>
+                    <div class="mt-8 h-64 bg-[#2d3748] rounded-xl flex items-center justify-center">
+                        <p class="text-gray-400">Map Placeholder</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
 </body>
 </html>
