@@ -165,6 +165,23 @@
             background-image: linear-gradient(to right, #374151, #1F2937);
         }
 
+        /* New keyframes for the waving hand animation */
+        @keyframes wave {
+            0% { transform: rotate(0deg); }
+            15% { transform: rotate(15deg); }
+            30% { transform: rotate(-10deg); }
+            45% { transform: rotate(15deg); }
+            60% { transform: rotate(0deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+        /* Class for the waving hand emoji */
+        .waving-hand {
+            animation: wave 2.5s infinite;
+            display: inline-block; /* Required for the transform to work correctly */
+            transform-origin: 70% 70%; /* Set the pivot point for the rotation */
+        }
+
     </style>
 </head>
 
@@ -202,7 +219,7 @@
         <section id="home" class="py-16 fade-in-section main-section-bg rounded-xl p-8 mb-8">
             <div class="max-w-4xl mx-auto text-center md:text-left">
                 <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-4">
-                    Hello! 👋
+                    Hello! <span class="waving-hand">👋</span>
                 </h1>
                 <p class="text-lg text-gray-600 mb-6 max-w-xl mx-auto md:mx-0">
                     I'm <span class="font-bold">Your Name</span>, a <span class="font-semibold">Full Stack Developer</span> with a passion for building beautiful and functional web applications.
