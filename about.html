@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio - About</title>
+    <!-- Use the Inter font from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Base styles for a clean look */
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        /*
+         * Animated background container to mimic the provided image.
+         * It uses a radial gradient and CSS keyframes to create a subtle, moving effect.
+         * The colors are inspired by the new palette: a deep maroon, a soft pink, and a dark brown.
+         */
+        .animated-gradient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Position behind all content */
+            background: radial-gradient(at 0% 100%, #280c1a 0%, transparent 50%),
+                        radial-gradient(at 100% 0%, #7c392c 0%, transparent 50%),
+                        radial-gradient(at 50% 50%, #edbfc6 0%, transparent 50%);
+            background-size: 300% 300%; /* Increased size for a more pronounced animation */
+            animation: moveGradient 10s ease-in-out infinite alternate; /* Shorter duration for faster movement */
+        }
+
+        @keyframes moveGradient {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        /* Menu container for positioning */
+        .fixed-menu-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 50;
+            padding: 1.5rem;
+        }
+
+        /* Menu dropdown animation */
+        #mobile-menu {
+            position: absolute;
+            top: 100%;
+            /* Aligned to match the main container's padding */
+            left: 1.5rem;
+            max-height: 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+            overflow: hidden;
+            /* Added min-width for a larger menu box */
+            min-width: 10rem;
+            transform: translateY(-10px);
+        }
+        #mobile-menu.active {
+            max-height: 20rem; /* A large enough value for the menu content */
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* Menu button rotation animation. The transition is now on the base button class
+           to ensure a smooth rotation in both directions. */
+        .menu-button {
+            transition: transform 0.3s ease-in-out;
+        }
+        .menu-button-active {
+            transform: rotate(90deg);
+        }
+
+        /* Scroll-to-top button styling, updated with new colors */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: #7c392c; /* Burnt Umber */
+            color: white;
+            padding: 1rem;
+            border-radius: 9999px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
+            z-index: 50;
+            display: none;
+        }
+        .scroll-to-top:hover {
+            background-color: #5c2c23; /* A darker shade of burnt umber */
+            transform: translateY(-5px);
+        }
+
+        /* Section fade-in effect */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Adjust main content backgrounds for transparency */
+        .main-section-bg {
+            background-color: transparent; /* Changed to transparent */
+            backdrop-filter: blur(5px); /* Add a subtle blur for readability */
+        }
+        
+        /* A more generic class for semi-transparent content cards */
+        .content-card {
+            background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white for the card */
+            backdrop-filter: blur(10px); /* A stronger blur for the card */
+        }
+
+        /* Custom class for the transparent, dark dropdown background */
+        .dark-transparent-card {
+            background-color: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+        }
+        
+        /* New padding for the menu links to make them larger */
+        .menu-link {
+            display: block;
+            padding: 0.75rem 1.5rem; /* Increased padding */
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Animated Gradient Background -->
+    <div class="animated-gradient-bg"></div>
+
+    <!-- Fixed Menu Container -->
+    <div class="fixed-menu-container relative">
+        <!-- Menu Button -->
+        <button id="mobile-menu-button" class="p-4 rounded-lg text-gray-800 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 menu-button">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path>
+            </svg>
+        </button>
+        <!-- Menu Dropdown -->
+        <div id="mobile-menu" class="dark-transparent-card shadow-lg py-1 mt-2 rounded-lg absolute">
+            <!-- Home link with an icon -->
+            <a href="index.html" class="menu-link text-gray-200 hover:text-white flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+                </svg>
+                Home
+            </a>
+            <!-- Other navigation links -->
+            <a href="about.html" class="menu-link text-[#edbfc6] font-semibold hover:text-white">About</a>
+            <a href="projects-certifications.html" class="menu-link text-gray-200 hover:text-white">Projects & Certifications</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-12">
+        <!-- About Page Content -->
+        <section id="about" class="py-16 fade-in-section main-section-bg rounded-xl p-8 mb-8">
+            <div class="max-w-4xl mx-auto text-center md:text-left">
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-4">
+                    About Me
+                </h1>
+                <p class="text-lg text-gray-600 mb-6 max-w-xl mx-auto md:mx-0">
+                    This is where you can write a detailed description of your background, skills, and professional journey.
+                    Talk about your education, your career path, and what you're passionate about in development.
+                </p>
+                <!-- Placeholder for more content -->
+                <p class="text-lg text-gray-600 mb-6 max-w-xl mx-auto md:mx-0">
+                    Feel free to add more sections here, such as a list of your core competencies or a short story about how you got into coding.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-4">
+        <div class="container mx-auto text-center px-6">
+            <p class="text-gray-400">© 2024 Your Name. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <div id="scroll-to-top" class="scroll-to-top">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+    </div>
+
+    <!-- JavaScript for interactivity -->
+    <script>
+        // Get all relevant elements from the DOM
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const scrollToTopButton = document.getElementById('scroll-to-top');
+        const sections = document.querySelectorAll('.fade-in-section');
+
+        // Toggle the mobile menu and button animation on click
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            mobileMenuButton.classList.toggle('menu-button-active');
+        });
+
+        // Show/hide the scroll-to-top button based on scroll position
+        window.addEventListener('scroll', () => {
+            scrollToTopButton.style.display = (window.scrollY > 300) ? 'block' : 'none';
+        });
+
+        // Smoothly scroll to the top of the page when the button is clicked
+        scrollToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Use Intersection Observer for the fade-in effect on sections
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                // Corrected the property check from 'is-visible' to 'isIntersecting'
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        // Observe each section for the fade-in effect
+        sections.forEach(section => observer.observe(section));
+    </script>
+</body>
+</html>
