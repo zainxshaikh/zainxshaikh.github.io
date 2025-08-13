@@ -90,7 +90,7 @@
             background-color: #7c392c; /* Burnt Umber */
             color: white;
             padding: 1rem;
-            border-radius: 9999px;
+            border-radius: 1.5rem; /* Updated to match the squircle style */
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease-in-out;
             cursor: pointer;
@@ -196,11 +196,12 @@
             transform-origin: 70% 70%;
         }
         
-        /* Hover effect for headings */
+        /* Hover effect for headings - This is the old code, which is now commented out.
         .text-hover-shadow:hover {
             text-shadow: 0 0 10px rgba(0,0,0,0.2);
             transition: text-shadow 0.3s ease-in-out;
         }
+        */
 
         /* ======================================================================
          * Content Layout & Responsive Adjustments
@@ -252,9 +253,11 @@
     <!-- Main Content -->
     <main class="container mx-auto px-6 py-12">
         <!-- Home Section (Main Hero Section) -->
-        <section id="home" class="py-16 fade-in-section main-section-bg rounded-xl p-8 mb-8 animate-float">
+        <!-- Removed the `animate-float` class from this section -->
+        <section id="home" class="py-16 fade-in-section main-section-bg rounded-xl p-8 mb-8">
             <div class="max-w-4xl mx-auto text-center">
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-4 text-hover-shadow">
+                <!-- Removed the `text-hover-shadow` class from the h1 tag -->
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-4">
                     Hello! <span class="waving-hand">👋</span>
                 </h1>
                 <p class="text-lg text-gray-600 mb-6 max-w-xl mx-auto">
@@ -264,7 +267,7 @@
                 <!-- Resume Download Button - Moved here to be closer to the hero section -->
                 <div class="mt-8">
                     <!-- IMPORTANT: Change 'your-resume.pdf' to the actual filename of your CV. -->
-                    <a href="your-resume.pdf" download="Mohammad_Zain_Shaikh_Resume.pdf" class="inline-block bg-white/20 text-gray-800 font-bold py-3 px-8 rounded-full hover:bg-white/40 transition-colors shadow-lg hover:scale-105">
+                    <a href="your-resume.pdf" download="Mohammad_Zain_Shaikh_Resume.pdf" class="inline-block bg-white/20 text-gray-800 font-bold py-3 px-8 rounded-3xl hover:bg-white/40 transition-colors shadow-lg hover:scale-105">
                         Download Résumé
                     </a>
                 </div>
@@ -275,9 +278,11 @@
         <div class="my-12 border-t-2 border-gray-900"></div>
 
         <!-- Get In Touch Section -->
-        <section id="contact" class="py-12 fade-in-section bg-white/10 rounded-xl p-8 mb-4 backdrop-blur-sm animate-float">
+        <!-- Removed the `animate-float` class from this section -->
+        <section id="contact" class="py-12 fade-in-section bg-white/10 rounded-xl p-8 mb-4 backdrop-blur-sm">
             <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4 text-hover-shadow">
+                <!-- Removed the `text-hover-shadow` class from the h2 tag -->
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4">
                     Let's catch up and get in touch!
                 </h2>
                 <p class="text-lg text-gray-600 mb-6">
@@ -286,16 +291,16 @@
                 <!-- Vertical arrangement of contact cards -->
                 <div class="flex flex-col items-center gap-6 max-w-xl mx-auto">
                     <!-- Email Card -->
-                    <a href="mailto:your.email@example.com" class="w-full max-w-sm p-4 rounded-full text-center transition-transform transform hover:scale-103 hover:shadow-xl group gradient-button email-button">
-                        <span class="text-xl">Send me an email</span>
+                    <a href="mailto:your.email@example.com" class="w-full max-w-sm p-4 rounded-3xl text-center transition-transform transform hover:scale-103 hover:shadow-xl group gradient-button email-button">
+                        <span class="text-xl">Send an Email</span>
                     </a>
                     <!-- LinkedIn Card -->
-                    <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer" class="w-full max-w-sm p-4 rounded-full text-center transition-transform transform hover:scale-103 hover:shadow-xl group gradient-button linkedin-button">
-                        <span class="text-xl">Connect with me on LinkedIn</span>
+                    <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer" class="w-full max-w-sm p-4 rounded-3xl text-center transition-transform transform hover:scale-103 hover:shadow-xl group gradient-button linkedin-button">
+                        <span class="text-xl">Connect on LinkedIn</span>
                     </a>
                     <!-- X Card -->
-                    <a href="https://twitter.com/your-username" target="_blank" rel="noopener noreferrer" class="w-full max-w-sm p-4 rounded-full text-center transition-transform transform hover:scale-103 hover:shadow-xl group gradient-button x-button">
-                        <span class="text-xl">Follow me on X</span>
+                    <a href="https://twitter.com/your-username" target="_blank" rel="noopener noreferrer" class="w-full max-w-sm p-4 rounded-3xl text-center transition-transform transform hover:scale-103 hover:shadow-xl group gradient-button x-button">
+                        <span class="text-xl">Follow on X</span>
                     </a>
                 </div>
             </div>
