@@ -3,15 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio - About</title>
+    <title>Zain's Portfolio - About</title>
+
     <!-- Use the Inter font from Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+
     <style>
-        /* Base styles for a clean look */
+        /* ======================================================================
+         * Base Styles & Custom Utilities
+         * ====================================================================== */
         body {
             font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
@@ -28,12 +32,12 @@
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1; /* Position behind all content */
+            z-index: -1;
             background: radial-gradient(at 0% 100%, #280c1a 0%, transparent 50%),
                         radial-gradient(at 100% 0%, #7c392c 0%, transparent 50%),
                         radial-gradient(at 50% 50%, #edbfc6 0%, transparent 50%);
-            background-size: 300% 300%; /* Increased size for a more pronounced animation */
-            animation: moveGradient 10s ease-in-out infinite alternate; /* Shorter duration for faster movement */
+            background-size: 300% 300%;
+            animation: moveGradient 10s ease-in-out infinite alternate;
         }
 
         @keyframes moveGradient {
@@ -54,26 +58,23 @@
         #mobile-menu {
             position: absolute;
             top: 100%;
-            /* Aligned to match the main container's padding */
             left: 1.5rem;
             max-height: 0;
             opacity: 0;
             visibility: hidden;
             transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
             overflow: hidden;
-            /* Added min-width for a larger menu box */
-            min-width: 10rem;
+            min-width: 12rem; /* Increased min-width for a more spacious menu */
             transform: translateY(-10px);
         }
         #mobile-menu.active {
-            max-height: 20rem; /* A large enough value for the menu content */
+            max-height: 20rem;
             opacity: 1;
             visibility: visible;
             transform: translateY(0);
         }
 
-        /* Menu button rotation animation. The transition is now on the base button class
-           to ensure a smooth rotation in both directions. */
+        /* Menu button rotation animation. */
         .menu-button {
             transition: transform 0.3s ease-in-out;
         }
@@ -89,7 +90,7 @@
             background-color: #7c392c; /* Burnt Umber */
             color: white;
             padding: 1rem;
-            border-radius: 9999px;
+            border-radius: 1.5rem; /* Updated to match the squircle style */
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease-in-out;
             cursor: pointer;
@@ -101,7 +102,7 @@
             transform: translateY(-5px);
         }
 
-        /* Section fade-in effect */
+        /* Section fade-in effect with a transition for opacity and transform */
         .fade-in-section {
             opacity: 0;
             transform: translateY(20px);
@@ -112,18 +113,53 @@
             transform: translateY(0);
         }
 
+        /* Fade-in for individual skills cards, with a delay */
+        .skill-card-fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .skill-card-fade-in.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Add a delay to each subsequent skill card */
+        .skill-card-fade-in:nth-child(1) { transition-delay: 0.1s; }
+        .skill-card-fade-in:nth-child(2) { transition-delay: 0.2s; }
+        .skill-card-fade-in:nth-child(3) { transition-delay: 0.3s; }
+        
+        /* New keyframes for the subtle floating animation */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Class for the floating effect */
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+
         /* Adjust main content backgrounds for transparency */
         .main-section-bg {
-            background-color: transparent; /* Changed to transparent */
-            backdrop-filter: blur(5px); /* Add a subtle blur for readability */
+            background-color: transparent;
+            backdrop-filter: blur(5px);
         }
         
         /* A more generic class for semi-transparent content cards */
         .content-card {
-            background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white for the card */
-            backdrop-filter: blur(10px); /* A stronger blur for the card */
+            background-color: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            /* Added transition for hover effects on the card */
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }
-
+        
+        /* Hover effect for content cards */
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
         /* Custom class for the transparent, dark dropdown background */
         .dark-transparent-card {
             background-color: rgba(0, 0, 0, 0.6);
@@ -133,7 +169,96 @@
         /* New padding for the menu links to make them larger */
         .menu-link {
             display: block;
-            padding: 0.75rem 1.5rem; /* Increased padding */
+            padding: 0.75rem 1.5rem;
+            transition: transform 0.2s ease-in-out; /* Added transition for hover effect */
+        }
+        
+        /* Custom styles for gradient buttons */
+        .gradient-button {
+            transition: all 0.3s ease-in-out;
+            color: white;
+            font-weight: 600;
+        }
+        .gradient-button:hover {
+            transform: scale(1.03);
+            box-shadow: 0 5px 10px -3px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+        }
+        .email-button {
+            background-image: linear-gradient(to right, #10B981, #059669);
+        }
+        .email-button:hover {
+            background-image: linear-gradient(to right, #059669, #047857);
+        }
+        .linkedin-button {
+            background-image: linear-gradient(to right, #0A66C2, #004182);
+        }
+        .linkedin-button:hover {
+            background-image: linear-gradient(to right, #004182, #002D62);
+        }
+        .x-button {
+            background-image: linear-gradient(to right, #6B7280, #374151);
+        }
+        .x-button:hover {
+            background-image: linear-gradient(to right, #374151, #1F2937);
+        }
+
+        /* New keyframes for the waving hand animation */
+        @keyframes wave {
+            0% { transform: rotate(0deg); }
+            15% { transform: rotate(15deg); }
+            30% { transform: rotate(-10deg); }
+            45% { transform: rotate(15deg); }
+            60% { transform: rotate(0deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+        /* Class for the waving hand emoji */
+        .waving-hand {
+            animation: wave 2.5s infinite;
+            display: inline-block;
+            transform-origin: 70% 70%;
+        }
+        
+        /* Hover effect for headings - This is the old code, which is now commented out.
+        .text-hover-shadow:hover {
+            text-shadow: 0 0 10px rgba(0,0,0,0.2);
+            transition: text-shadow 0.3s ease-in-out;
+        }
+        */
+
+        /* ======================================================================
+         * Content Layout & Responsive Adjustments
+         * ====================================================================== */
+        /*
+         * Responsive hero section layout
+         * On larger screens, the hero text is centered. On smaller screens, it's also centered.
+         * The overall padding and spacing are adjusted for a better look on all screen sizes.
+         */
+        #home .max-w-4xl {
+            max-width: 64rem; /* Adjusted for a wider hero section on desktop */
+        }
+
+        /* Contact cards layout */
+        #contact .flex {
+            gap: 1.5rem; /* Increased gap for better spacing */
+        }
+        
+        /* New custom style for skills list */
+        .skill-list li {
+            position: relative;
+            padding-left: 1.5em; /* Space for the bullet/icon */
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-list li::before {
+            content: '•'; /* Or any other desired bullet point */
+            position: absolute;
+            left: 0;
+            color: #7c392c; /* Matching the burnt umber color */
+            font-weight: bold;
+            font-size: 1.5em;
+            line-height: 1;
+            top: -0.1em;
         }
     </style>
 </head>
@@ -146,7 +271,7 @@
     <!-- Fixed Menu Container -->
     <div class="fixed-menu-container relative">
         <!-- Menu Button -->
-        <button id="mobile-menu-button" class="p-4 rounded-lg text-gray-800 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 menu-button">
+        <button id="mobile-menu-button" class="p-4 rounded-lg text-gray-800 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 menu-button" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle navigation menu">
             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path>
             </svg>
@@ -154,42 +279,92 @@
         <!-- Menu Dropdown -->
         <div id="mobile-menu" class="dark-transparent-card shadow-lg py-1 mt-2 rounded-lg absolute">
             <!-- Home link with an icon -->
-            <a href="index.html" class="menu-link text-gray-200 hover:text-white flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <a href="index.html" class="menu-link text-gray-200 hover:text-white hover:scale-105">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block mr-2" viewBox="0 0 20 20" fill="currentColor">
                     <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
                 </svg>
                 Home
             </a>
             <!-- Other navigation links -->
-            <a href="about.html" class="menu-link text-[#edbfc6] font-semibold hover:text-white">About</a>
-            <a href="projects-certifications.html" class="menu-link text-gray-200 hover:text-white">Projects & Certifications</a>
+            <a href="about.html" class="menu-link text-[#edbfc6] font-semibold hover:text-white flex items-center gap-2 hover:scale-105">About</a>
+            <a href="projects-certifications.html" class="menu-link text-gray-200 hover:text-white hover:scale-105">Certifications & Projects</a>
         </div>
     </div>
 
     <!-- Main Content -->
     <main class="container mx-auto px-6 py-12">
-        <!-- About Page Content -->
-        <section id="about" class="py-16 fade-in-section main-section-bg rounded-xl p-8 mb-8">
-            <div class="max-w-4xl mx-auto text-center md:text-left">
+        <!-- About Section -->
+        <section id="about" class="py-8 fade-in-section main-section-bg rounded-xl p-8">
+            <div class="max-w-4xl mx-auto text-center">
                 <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-4">
                     About Me
                 </h1>
-                <p class="text-lg text-gray-600 mb-6 max-w-xl mx-auto md:mx-0">
-                    This is where you can write a detailed description of your background, skills, and professional journey.
-                    Talk about your education, your career path, and what you're passionate about in development.
-                </p>
-                <!-- Placeholder for more content -->
-                <p class="text-lg text-gray-600 mb-6 max-w-xl mx-auto md:mx-0">
-                    Feel free to add more sections here, such as a list of your core competencies or a short story about how you got into coding.
+                <p class="text-lg text-gray-600 max-w-xl mx-auto">
+                    A short introduction about who you are and what you do.
                 </p>
             </div>
         </section>
+
+        <!-- Detailed About Section -->
+        <section id="about-me" class="py-8 fade-in-section">
+            <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                <!-- Biography Card -->
+                <div class="content-card rounded-3xl shadow-xl p-8 text-center md:text-left">
+                    <!-- Placeholder for your photo -->
+                    <img src="https://placehold.co/400x400/280c1a/edbfc6?text=Your+Photo" alt="A professional headshot of Zain" class="rounded-3xl shadow-xl mb-6 mx-auto md:mx-0 max-w-full h-auto">
+                    <h3 class="text-3xl font-bold text-gray-900 mb-4">Biography</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                    <p class="mt-4 text-gray-700 leading-relaxed">
+                        Feel free to replace this with your own story, experience, and what drives you in your career. Talk about your passion for technology, problem-solving, and building great applications.
+                    </p>
+                </div>
+                <!-- Skills Card -->
+                <div class="content-card rounded-3xl shadow-xl p-8">
+                    <h3 class="text-3xl font-bold text-gray-900 mb-4">Skills</h3>
+                    <div class="flex flex-col gap-4">
+                        <!-- Frontend Card -->
+                        <div class="content-card rounded-2xl p-6 shadow-md skill-card-fade-in">
+                            <h4 class="text-xl font-semibold text-gray-800 mb-2">Frontend</h4>
+                            <ul class="skill-list text-gray-700 text-lg">
+                                <li>HTML, CSS, JavaScript (ES6+)</li>
+                                <li>React, Vue.js, Angular</li>
+                                <li>State Management (Redux, Zustand)</li>
+                                <li>Responsive Design, Tailwind CSS</li>
+                            </ul>
+                        </div>
+                        <!-- Backend Card -->
+                        <div class="content-card rounded-2xl p-6 shadow-md skill-card-fade-in">
+                            <h4 class="text-xl font-semibold text-gray-800 mb-2">Backend</h4>
+                            <ul class="skill-list text-gray-700 text-lg">
+                                <li>Node.js, Express.js</li>
+                                <li>Python, Django, Flask</li>
+                                <li>Databases (MongoDB, PostgreSQL, MySQL)</li>
+                                <li>RESTful APIs, GraphQL</li>
+                            </ul>
+                        </div>
+                        <!-- Other Card -->
+                        <div class="content-card rounded-2xl p-6 shadow-md skill-card-fade-in">
+                            <h4 class="text-xl font-semibold text-gray-800 mb-2">Other</h4>
+                            <ul class="skill-list text-gray-700 text-lg">
+                                <li>Git & GitHub</li>
+                                <li>Agile Methodologies</li>
+                                <li>Cloud (AWS, Google Cloud)</li>
+                                <li>Docker</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-4">
         <div class="container mx-auto text-center px-6">
-            <p class="text-gray-400">© 2024 Your Name. All rights reserved.</p>
+            <p class="text-gray-400">Version 2.3 | Designed and Engineered by Mohammad Zain Shaikh.</p>
         </div>
     </footer>
 
@@ -202,41 +377,68 @@
 
     <!-- JavaScript for interactivity -->
     <script>
-        // Get all relevant elements from the DOM
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const scrollToTopButton = document.getElementById('scroll-to-top');
-        const sections = document.querySelectorAll('.fade-in-section');
+        // ======================================================================
+        // Event Listeners and Interactivity
+        // ======================================================================
+        document.addEventListener('DOMContentLoaded', () => {
+            // Get all relevant elements from the DOM
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const scrollToTopButton = document.getElementById('scroll-to-top');
+            const sections = document.querySelectorAll('.fade-in-section');
+            const skillCards = document.querySelectorAll('.skill-card-fade-in');
 
-        // Toggle the mobile menu and button animation on click
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('active');
-            mobileMenuButton.classList.toggle('menu-button-active');
-        });
+            // Toggle the mobile menu and button animation on click
+            mobileMenuButton.addEventListener('click', () => {
+                const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true' || false;
+                mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
+                mobileMenu.classList.toggle('active');
+                mobileMenuButton.classList.toggle('menu-button-active');
+            });
 
-        // Show/hide the scroll-to-top button based on scroll position
-        window.addEventListener('scroll', () => {
-            scrollToTopButton.style.display = (window.scrollY > 300) ? 'block' : 'none';
-        });
-
-        // Smoothly scroll to the top of the page when the button is clicked
-        scrollToTopButton.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // Use Intersection Observer for the fade-in effect on sections
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                // Corrected the property check from 'is-visible' to 'isIntersecting'
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target);
+            // Close the menu when a link is clicked
+            mobileMenu.addEventListener('click', (event) => {
+                if (event.target.tagName === 'A') {
+                    mobileMenu.classList.remove('active');
+                    mobileMenuButton.classList.remove('menu-button-active');
+                    mobileMenuButton.setAttribute('aria-expanded', 'false');
                 }
             });
-        }, { threshold: 0.1 });
 
-        // Observe each section for the fade-in effect
-        sections.forEach(section => observer.observe(section));
+            // Show/hide the scroll-to-top button based on scroll position
+            window.addEventListener('scroll', () => {
+                scrollToTopButton.style.display = (window.scrollY > 300) ? 'block' : 'none';
+            });
+
+            // Smoothly scroll to the top of the page when the button is clicked
+            scrollToTopButton.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // Use Intersection Observer for the fade-in effect on main sections
+            const sectionObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            sections.forEach(section => sectionObserver.observe(section));
+
+            // Use a separate Intersection Observer for the individual skill cards
+            const skillCardObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            skillCards.forEach(card => skillCardObserver.observe(card));
+        });
     </script>
 </body>
 </html>
