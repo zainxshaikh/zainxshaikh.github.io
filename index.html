@@ -112,6 +112,18 @@
             opacity: 1;
             transform: translateY(0);
         }
+        
+        /* New keyframes for the subtle floating animation */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Class for the floating effect */
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
 
         /* Adjust main content backgrounds for transparency */
         .main-section-bg {
@@ -135,6 +147,7 @@
         .menu-link {
             display: block;
             padding: 0.75rem 1.5rem;
+            transition: transform 0.2s ease-in-out; /* Added transition for hover effect */
         }
         
         /* Custom styles for gradient buttons */
@@ -182,6 +195,12 @@
             display: inline-block;
             transform-origin: 70% 70%;
         }
+        
+        /* Hover effect for headings */
+        .text-hover-shadow:hover {
+            text-shadow: 0 0 10px rgba(0,0,0,0.2);
+            transition: text-shadow 0.3s ease-in-out;
+        }
 
         /* ======================================================================
          * Content Layout & Responsive Adjustments
@@ -218,24 +237,24 @@
         <!-- Menu Dropdown -->
         <div id="mobile-menu" class="dark-transparent-card shadow-lg py-1 mt-2 rounded-lg absolute">
             <!-- Home link with an icon -->
-            <a href="index.html" class="menu-link text-[#edbfc6] font-semibold hover:text-white flex items-center gap-2">
+            <a href="index.html" class="menu-link text-[#edbfc6] font-semibold hover:text-white flex items-center gap-2 hover:scale-105">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                     <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
                 </svg>
                 Home
             </a>
             <!-- Other navigation links -->
-            <a href="about.html" class="menu-link text-gray-200 hover:text-white">About</a>
-            <a href="projects-certifications.html" class="menu-link text-gray-200 hover:text-white">Projects & Certifications</a>
+            <a href="about.html" class="menu-link text-gray-200 hover:text-white hover:scale-105">About</a>
+            <a href="projects-certifications.html" class="menu-link text-gray-200 hover:text-white hover:scale-105">Certifications & Projects</a>
         </div>
     </div>
 
     <!-- Main Content -->
     <main class="container mx-auto px-6 py-12">
         <!-- Home Section (Main Hero Section) -->
-        <section id="home" class="py-16 fade-in-section main-section-bg rounded-xl p-8 mb-8">
+        <section id="home" class="py-16 fade-in-section main-section-bg rounded-xl p-8 mb-8 animate-float">
             <div class="max-w-4xl mx-auto text-center">
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-4">
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-4 text-hover-shadow">
                     Hello! <span class="waving-hand">👋</span>
                 </h1>
                 <p class="text-lg text-gray-600 mb-6 max-w-xl mx-auto">
@@ -245,8 +264,8 @@
                 <!-- Resume Download Button - Moved here to be closer to the hero section -->
                 <div class="mt-8">
                     <!-- IMPORTANT: Change 'your-resume.pdf' to the actual filename of your CV. -->
-                    <a href="your-resume.pdf" download="Mohammad_Zain_Shaikh_Resume.pdf" class="inline-block bg-white/20 text-gray-800 font-bold py-3 px-8 rounded-full hover:bg-white/40 transition-colors shadow-lg">
-                        Download Resume
+                    <a href="your-resume.pdf" download="Mohammad_Zain_Shaikh_Resume.pdf" class="inline-block bg-white/20 text-gray-800 font-bold py-3 px-8 rounded-full hover:bg-white/40 transition-colors shadow-lg hover:scale-105">
+                        Download Résumé
                     </a>
                 </div>
             </div>
@@ -256,16 +275,16 @@
         <div class="my-12 border-t-2 border-gray-900"></div>
 
         <!-- Get In Touch Section -->
-        <section id="contact" class="py-12 fade-in-section bg-white/10 rounded-xl p-8 mb-4 backdrop-blur-sm">
+        <section id="contact" class="py-12 fade-in-section bg-white/10 rounded-xl p-8 mb-4 backdrop-blur-sm animate-float">
             <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4 text-hover-shadow">
                     Let's catch up and get in touch!
                 </h2>
                 <p class="text-lg text-gray-600 mb-6">
                     I'm currently open to new opportunities. Whether you have a question or just want to say hi, my inbox is always open!
                 </p>
                 <!-- Vertical arrangement of contact cards -->
-                <div class="flex flex-col items-center gap-6"> <!-- Increased gap for better visual separation -->
+                <div class="flex flex-col items-center gap-6 max-w-xl mx-auto">
                     <!-- Email Card -->
                     <a href="mailto:your.email@example.com" class="w-full max-w-sm p-4 rounded-full text-center transition-transform transform hover:scale-103 hover:shadow-xl group gradient-button email-button">
                         <span class="text-xl">Send me an email</span>
@@ -286,7 +305,7 @@
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-4">
         <div class="container mx-auto text-center px-6">
-            <p class="text-gray-400">Version 2.2 | Designed and Engineered by Mohammad Zain Shaikh.</p>
+            <p class="text-gray-400">Version 2.3 | Designed and Engineered by Mohammad Zain Shaikh.</p>
         </div>
     </footer>
 
